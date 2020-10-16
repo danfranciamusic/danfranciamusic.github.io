@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2em;
+  background: #2c2a2d;
+  color: #999999;
+}
+
+#app {
+  max-width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #ffd666;
+  margin: 1em 0 2em;
+}
+
+h2 {
+  color: #ac9cf2;
+}
+
+h2, article {
+  margin-bottom: 1em;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #a8dc76;
+}
+
+.artist, a.artist {
+  color: #ff6087;
+}
+
+.label, a.label {
+  color: #78dce8;
+}
+
+.year {
+  color: #dedede;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.copyright {
+  color: #fb9767;
+}
