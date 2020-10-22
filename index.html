@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Website of Eric Harm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eric Harm</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="vue@2.6.0"></script>
 </head>
 <body>
 
   <div id="app">
-    <h1>Website of Eric Harm</h1>
+    <h1>Eric Harm</h1>
 
     <section id="code">
       <h2>Software Development</h2>
-      <article v-for="entry in entries.connect">
+      <article v-for="entry in entries.code">
         <a v-bind:href="entry.url">{{ entry.label }}</a>
       </article>
     </section>
