@@ -21,7 +21,8 @@ new window.Vue({
       'Merge Records': 'https://www.mergerecords.com/',
       'Shea Stadium Records': 'http://www.sheastadiumrecords.nyc/',
       'Exploding In Sound': 'https://www.explodinginsoundrecords.com/',
-      'XL Recordings': 'https://xlrecordings.com/'
+      'XL Recordings': 'https://xlrecordings.com/',
+      'Comic Vein': 'https://comicvein.wordpress.com/about/'
     },
 
     entries: {
@@ -90,7 +91,7 @@ new window.Vue({
           artist: 'Lost Boy ?',
           year: '2019',
           title: 'Ted Talks [single]',
-          label: 'n/a',
+          label: 'Comic Vein',
           image: null,
           spotifyUrl: 'https://open.spotify.com/album/5x9T2hdJXPtsxKG4BLzFxg?si=VOGGzYV3SICXr6XyO4RoDw',
           role: 'Drums'
@@ -100,7 +101,7 @@ new window.Vue({
           artist: 'Lost Boy ?',
           year: '2020',
           title: 'Feel Like Shit (All of the Time) [single]',
-          label: 'n/a',
+          label: 'Comic Vein',
           image: null,
           spotifyUrl: 'https://open.spotify.com/album/37svXQvw1SIp0fU9frMnjP?si=dgR5yroCTCq4KhDR-conlg',
           role: 'Drums'
