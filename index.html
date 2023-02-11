@@ -23,7 +23,7 @@
       <h2>Music</h2>
       <article v-for="entry in albumsByYearDesc">
         <div>
-          <a class="italic" v-bind:href="entry.spotifyUrl">{{ entry.title }}</a>
+          <a class="italic" v-bind:href="entry.url">{{ entry.title }}</a>
           by
           <a class="artist" v-bind:href="artistLinks[entry.artist]">{{ entry.artist }}</a>
         </div>

@@ -43,7 +43,7 @@ new window.Vue({
           title: 'The Monitor',
           label: 'XL Recordings',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/5U09FQWagzAU5HPmufUAlU?si=6h8UnZT5TlqKkPk3CfUszg',
+          url: 'https://open.spotify.com/album/5U09FQWagzAU5HPmufUAlU?si=6h8UnZT5TlqKkPk3CfUszg',
           role: 'Drums'
         },
 
@@ -53,7 +53,7 @@ new window.Vue({
           title: 'Local Business',
           label: 'XL Recordings',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/4dx4Khp1YnIcZrTTdRHy1I?si=sYtXN1SLSImI3xDxAYwofA',
+          url: 'https://open.spotify.com/album/4dx4Khp1YnIcZrTTdRHy1I?si=sYtXN1SLSImI3xDxAYwofA',
           role: 'Drums'
         },
 
@@ -63,7 +63,7 @@ new window.Vue({
           title: 'The Most Lamentable Tragedy',
           label: 'Merge Records',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/6tcFu0TqSurn0s4unYDXSO?si=HKxKGzZCQIOHbeSX6uOgbQ',
+          url: 'https://open.spotify.com/album/6tcFu0TqSurn0s4unYDXSO?si=HKxKGzZCQIOHbeSX6uOgbQ',
           role: 'Drums'
         },
 
@@ -73,7 +73,7 @@ new window.Vue({
           title: 'S+@dium Rock: 5 Nights at the Opera',
           label: 'Merge Records',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/1HEQ4svrZgFrBjmL65UY9a?si=OyxgxATfRwiGMM9MbrDqSQ',
+          url: 'https://open.spotify.com/album/1HEQ4svrZgFrBjmL65UY9a?si=OyxgxATfRwiGMM9MbrDqSQ',
           role: 'Drums'
         },
 
@@ -83,7 +83,7 @@ new window.Vue({
           title: 'Come Back To Life',
           label: 'Exploding In Sound',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/4bZlkYt3pKT90sEJSjm9s2?si=uflHN35gTyKlrNxdrqbTwQ',
+          url: 'https://open.spotify.com/album/4bZlkYt3pKT90sEJSjm9s2?si=uflHN35gTyKlrNxdrqbTwQ',
           role: 'Drums (on 3 songs)'
         },
 
@@ -93,7 +93,7 @@ new window.Vue({
           title: 'Ted Talks [single]',
           label: 'Comic Vein',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/5x9T2hdJXPtsxKG4BLzFxg?si=VOGGzYV3SICXr6XyO4RoDw',
+          url: 'https://open.spotify.com/album/5x9T2hdJXPtsxKG4BLzFxg?si=VOGGzYV3SICXr6XyO4RoDw',
           role: 'Drums'
         },
 
@@ -103,7 +103,7 @@ new window.Vue({
           title: 'Feel Like Shit (All of the Time) [single]',
           label: 'Comic Vein',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/37svXQvw1SIp0fU9frMnjP?si=dgR5yroCTCq4KhDR-conlg',
+          url: 'https://open.spotify.com/album/37svXQvw1SIp0fU9frMnjP?si=dgR5yroCTCq4KhDR-conlg',
           role: 'Drums'
         },
 
@@ -113,8 +113,18 @@ new window.Vue({
           title: 'Dust',
           label: 'Shea Stadium Records',
           image: null,
-          spotifyUrl: 'https://open.spotify.com/album/6iHGMV4nBTBKT5dzs9G9k9?si=-yDQ-ErrTRmJNR9_zqNrFQ',
+          url: 'https://open.spotify.com/album/6iHGMV4nBTBKT5dzs9G9k9?si=-yDQ-ErrTRmJNR9_zqNrFQ',
           role: 'Auxiliary Percussion, Melodica, Voice'
+        },
+
+        {
+          artist: 'Titus Andronicus',
+          year: '2022',
+          title: '"Give Me Grief" from The Will To Live',
+          label: 'Merge Records',
+          image: null,
+          url: 'https://www.youtube.com/watch?v=EKnWrwG_mbs',
+          role: 'Guest Vocals'
         }
       ]
     }
