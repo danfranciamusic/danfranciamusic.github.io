@@ -28,7 +28,6 @@ h1 {
 .frame {
   max-width: 800px;
   margin: 0 auto;
-  border: 1px solid #55525a;
   padding: 1.5em;
 }
 
@@ -37,16 +36,12 @@ h1 {
   margin-bottom: 1.5em;
 }
 
-.frame-header .contact a {
-  color: #ffd666;
-}
-
 .socials {
   margin-top: 0.5em;
 }
 
 .socials a {
-  color: #a8dc76;
+  color: #4C2B05;
 }
 
 .socials span {
@@ -76,8 +71,7 @@ h1 {
 }
 
 .tab.active {
-  color: #ffd666;
-  background: rgba(255, 214, 102, 0.08);
+  background: #ffd666;
 }
 
 .content {
