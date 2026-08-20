@@ -6,14 +6,14 @@
 
 body {
   padding: 2em 1em;
-  background: #2c2a2d;
-  color: #999999;
+  background: #B4E2B9;
+  color: #273F36;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 a, a:visited {
   text-decoration: none;
-  color: #a8dc76;
+  color: #4C2B05;
 }
 
 a:hover {
@@ -21,7 +21,7 @@ a:hover {
 }
 
 h1 {
-  color: #ffd666;
+  color: #4C2B05;
   margin-bottom: 1em;
 }
 
@@ -54,29 +54,25 @@ h1 {
   margin: 0 0.4em;
 }
 
-.panel {
-  border: 1px solid #55525a;
-}
-
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  border-bottom: 1px solid #55525a;
 }
 
 .tab {
-  padding: 0.75em 1.25em;
+  padding: 0.5em 1em;
   color: #999999;
-  border-right: 1px solid #55525a;
+  border: 1px solid #55525a;
+  border-bottom: 0;
+}
+
+.tab + .tab {
+  border-left: 0;
 }
 
 .tab:hover {
   color: #ac9cf2;
   text-decoration: none;
-}
-
-.tab:last-child {
-  border-right: none;
 }
 
 .tab.active {
@@ -86,6 +82,7 @@ h1 {
 
 .content {
   padding: 1.5em;
+  border: 1px solid #55525a;
 }
 
 .empty {
@@ -149,6 +146,10 @@ h1 {
 
   .tab:last-child {
     border-bottom: none;
+  }
+
+  .tab + .tab {
+    margin-left: 0;
   }
 
   .content {
