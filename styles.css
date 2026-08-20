@@ -171,17 +171,12 @@ h1 {
   }
 
   .tab {
-    border-right: none;
-    border-bottom: 1px solid #55525a;
     text-align: center;
-  }
-
-  .tab:last-child {
-    border-bottom: none;
   }
 
   .tab + .tab {
     margin-left: 0;
+    border-left: 1px solid #55525a;
   }
 
   .content {
