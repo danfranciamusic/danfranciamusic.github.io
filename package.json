@@ -1,0 +1,8 @@
+{
+  "name": "danfranciamusic-com",
+  "private": true,
+  "description": "Static site source for danfranciamusic.com",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
