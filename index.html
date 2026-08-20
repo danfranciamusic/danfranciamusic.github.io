@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Eric Harm</title>
+  <title>Dan Francia Music</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="vue@2.6.0"></script>
 </head>
+
 <body>
 
   <div id="app">
-    <h1>Eric Harm</h1>
-
-    <section id="code">
-      <h2>Software Development</h2>
-      <article v-for="entry in entries.code">
-        <a v-bind:href="entry.url">{{ entry.label }}</a>
-      </article>
-    </section>
+    <h1>Dan Francia</h1>
 
     <section id="music">
       <h2>Music</h2>
@@ -28,9 +23,10 @@
           <a class="artist" v-bind:href="artistLinks[entry.artist]">{{ entry.artist }}</a>
         </div>
         <div>
-          <span class="label" v-if="!labelLinks[entry.label]">{{ entry.label }}</span><span v-if="!labelLinks[entry.label]">,</span>
+          <span class="label" v-if="!labelLinks[entry.label]">{{ entry.label }}</span><span
+            v-if="!labelLinks[entry.label]">,</span>
           <span v-if="labelLinks[entry.label]">
-            <a class="label"  v-bind:href="labelLinks[entry.label]">{{ entry.label }}</a>,
+            <a class="label" v-bind:href="labelLinks[entry.label]">{{ entry.label }}</a>,
           </span>
           <span class="year">{{ entry.year }}</span>
         </div>
@@ -39,25 +35,32 @@
 
       <article>
         <div>
-          <a class="italic" href="https://www.discogs.com/artist/1160868-Eric-Harm">Eric Harm</a>
+          <a class="italic" href="https://www.discogs.com/artist/2199154-Daniel-Francia">Dan Francia</a>
           on
-          <a class="artist" href="https://www.discogs.com/artist/1160868-Eric-Harm">Discogs</a>
+          <a class="artist" href="https://www.discogs.com/artist/2199154-Daniel-Francia">Discogs</a>
         </div>
       </article>
     </section>
 
-    <section id="chess">
-      <h2>Chess</h2>
-      <article v-for="entry in entries.chess">
-        <a v-bind:href="entry.url">{{ entry.label }}</a>
-      </article>
+    <section id="posts">
+
+      <div class="post">
+        <div class="title">
+          The title of the post
+        </div>
+
+        <div class="content">
+          The content of the post
+        </div>
+      </div>
     </section>
 
-    <div class="copyright">&copy; 2022</div>
+    <div class="copyright">&copy; 2026</div>
   </div>
 
 
   <script src="main.js"></script>
 
 </body>
+
 </html>
