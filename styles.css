@@ -97,20 +97,58 @@ h1 {
   padding-bottom: 0;
 }
 
-.release-title a {
-  font-style: italic;
+.release {
+  display: flex;
+  gap: 1.25em;
+  align-items: flex-start;
 }
 
-.artist {
-  color: #ff6087;
+.release-artwork {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #55525a;
 }
 
-.label, a.label {
-  color: #78dce8;
+.release-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.year {
-  color: #dedede;
+.release-title {
+  margin-bottom: 0.25em;
+}
+
+.release-date {
+  color: #6f6c72;
+  margin-bottom: 0.75em;
+}
+
+.tracklist {
+  margin: 0 0 0.75em 1.25em;
+}
+
+.credits p {
+  margin-bottom: 0.75em;
+}
+
+.credits p:last-child {
+  margin-bottom: 0;
+}
+
+.release-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.75em;
+}
+
+.release-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .gig-date {
@@ -148,5 +186,15 @@ h1 {
 
   .content {
     padding: 1em;
+  }
+
+  .release {
+    flex-direction: column;
+  }
+
+  .release-artwork {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
