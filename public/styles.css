@@ -222,4 +222,15 @@ h1 {
     height: auto;
     aspect-ratio: 1 / 1;
   }
+
+  .scroll-shield {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: #B4E2B9;
+    z-index: 5;
+  }
 }
