@@ -1,0 +1,27 @@
+title: Big Circle EP
+artwork: https://f4.bcbits.com/img/a4093003552_2.jpg
+date: July 17, 2026
+tracklist:
+```
+Flipped Over (Watt) 03:13
+Calling All Gods (Weckerman) 03:20
+Exit Plan (Mercer) 03:48
+Signs Along The Way (Francia) 03:40
+```
+
+credits:
+```
+Dan Francia - bass (right)
+Dave Weckerman - drums
+Glenn Mercer - guitar
+Mike Watt - bass (left)
+
+Recorded during 2025 - 2026 and mixed by Dan and Glenn at Boat Studio in North Haledon, NJ. Watt recorded himself at studio tHUNDERpANTS in San Pedro, CA. Additional instruments by the band.
+
+Flipped Over - published by tHUNDERpSPIELS MUSIC (BMI). Calling All Gods - published by Wu Publishing (ASCAP). Exit Plan - published by Glenn Mercer Music (ASCAP). Signs Along The Way - published by Dan Francia (BMI).
+
+Mastered by Sarah Register. Art Layout by Mike Quigley.
+```
+
+player: https://bandcamp.com/EmbeddedPlayer/album=1983788584/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/
+player-link: https://danfrancia.bandcamp.com/album/big-circle-ep

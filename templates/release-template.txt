@@ -1,0 +1,29 @@
+# How to add a new release:
+# 1. Copy this file into src/data/releases/ and rename it (e.g. new-album.txt).
+# 2. Fill in the fields below.
+# 3. The "player" and "player-link" fields are optional -- delete both lines
+#    if the release doesn't have a Bandcamp (or similar) embed yet.
+# 4. Run `node build.js` from the repo root, then commit + push.
+#
+# Releases are sorted newest-first automatically based on the "date" field.
+
+title: Release Title
+artwork: https://example.com/artwork.jpg
+date: Month Day, Year
+tracklist:
+```
+Track One
+Track Two
+```
+
+credits:
+```
+Performer One - instrument
+Performer Two - instrument
+
+Recording/mixing/mastering credits go here. Separate paragraphs with a
+blank line; lines within a paragraph get joined with a line break.
+```
+
+player: https://bandcamp.com/EmbeddedPlayer/album=YOUR_ALBUM_ID/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/
+player-link: https://example.bandcamp.com/album/release-title

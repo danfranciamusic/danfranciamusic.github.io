@@ -1,0 +1,26 @@
+title: Dan Francia, Adam Schatz and The Tiny Squid EP
+artwork: https://f4.bcbits.com/img/a3986351431_10.jpg
+date: August 4, 2026
+tracklist:
+```
+Out Of Pocket 04:26
+Wonder Not 03:18
+Futuristic Insects 00:51
+```
+
+credits:
+```
+Dan Francia - bass
+Adam Schatz - sax and live processing
+Luke Chiaruttini (Track 1), Adam Reich and Nora Dabdoub are The Tiny Squid
+
+Track 1 - high-pitched metal percussion
+Tracks 2 and 3 - small self-amplified electronic instruments
+
+Recorded by Adam Reich on May 11th, 2026 at Second Base in Brooklyn, NY
+Mixed and mastered by Dan Francia
+Cover Art by Karla Francia
+```
+
+player: https://bandcamp.com/EmbeddedPlayer/album=1154608695/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/
+player-link: https://danfrancia.bandcamp.com/album/dan-francia-adam-schatz-and-the-tiny-squid-ep

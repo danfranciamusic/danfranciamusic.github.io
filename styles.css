@@ -138,21 +138,29 @@ h1 {
 }
 
 .release-video {
-  position: relative;
-  aspect-ratio: 16 / 9;
   margin-top: 0.75em;
 }
 
 .release-video iframe {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .gig-date {
   color: #dedede;
+}
+
+.newsletter-embed {
+  max-width: 480px;
+  margin: 1.5em auto 0;
+}
+
+.newsletter-embed iframe {
+  display: block;
+  width: 100%;
+  border: 1px solid #55525a;
+  border-radius: 8px;
+  background: #fff;
 }
 
 .copyright {
