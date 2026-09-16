@@ -20,7 +20,7 @@ const DIST = path.join(ROOT, "dist");
 const STATIC_ASSETS = ["CNAME", "favicon.ico", "styles.css"];
 
 const pages = [
-  { file: "home.html", out: "index.html", title: "Dan Francia", nav: "home", label: "Home" },
+  { file: "home.html", out: "index.html", href: "/", title: "Dan Francia", nav: "home", label: "Home" },
   { file: "music.html", out: "music.html", title: "Music — Dan Francia", nav: "music", label: "Music" },
   { file: "gigs.html", out: "gigs.html", title: "Gigs — Dan Francia", nav: "gigs", label: "Gigs" },
   { file: "newsletter.html", out: "newsletter.html", title: "Newsletter — Dan Francia", nav: "newsletter", label: "Newsletter" },
@@ -30,7 +30,8 @@ function renderNav(activeNav) {
   return pages
     .map((p) => {
       const cls = p.nav === activeNav ? "tab active" : "tab";
-      return `        <a href="${p.out}" class="${cls}">${p.label}</a>`;
+      const href = p.href || p.out;
+      return `        <a href="${href}" class="${cls}">${p.label}</a>`;
     })
     .join("\n");
 }
