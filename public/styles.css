@@ -173,26 +173,19 @@ h1 {
 }
 
 .newsletter-embed {
-  max-width: 480px;
+  max-width: 400px;
   margin: 1.5em auto 0;
 }
 
 .newsletter-embed iframe {
-  display: block;
   width: 100%;
-  border: 1px solid #55525a;
-  border-radius: 8px;
-  background: #fff;
+  background: #B4E2B9 !important;
 }
 
 .copyright {
   text-align: center;
   color: #fb9767;
   margin-top: 1.5em;
-}
-
-iframe {
-  background: #B4E2B9 !important;
 }
 
 @media (max-width: 600px) {
