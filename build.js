@@ -3,10 +3,11 @@
 
 // Tiny zero-dependency static site builder.
 //
-// Stitches src/templates/layout.html together with each src/pages/*.html file and
-// copies static assets into dist/, which is what actually gets deployed
-// to GitHub Pages (see .github/workflows/deploy.yml). No client-side JS
-// is involved in navigation -- these are plain links between plain pages.
+// Stitches src/templates/layout.html together with each src/pages/*.html file
+// and copies everything in public/ as-is into dist/, which is what actually
+// gets deployed to GitHub Pages (see .github/workflows/deploy.yml). No
+// client-side JS is involved in navigation -- these are plain links between
+// plain pages.
 //
 // Usage: node build.js
 
@@ -16,12 +17,20 @@ const path = require("path");
 const ROOT = __dirname;
 const SRC = path.join(ROOT, "src");
 const DIST = path.join(ROOT, "dist");
+const PUBLIC = path.join(ROOT, "public");
 
-const STATIC_ASSETS = [
-  { src: "CNAME", dest: "CNAME" },
-  { src: "favicon.ico", dest: "favicon.ico" },
-  { src: path.join("assets", "styles.css"), dest: "styles.css" },
-];
+function copyDir(from, to) {
+  fs.mkdirSync(to, { recursive: true });
+  for (const entry of fs.readdirSync(from, { withFileTypes: true })) {
+    const fromPath = path.join(from, entry.name);
+    const toPath = path.join(to, entry.name);
+    if (entry.isDirectory()) {
+      copyDir(fromPath, toPath);
+    } else {
+      fs.copyFileSync(fromPath, toPath);
+    }
+  }
+}
 
 const pages = [
   { file: "home.html", out: "index.html", href: "/", title: "Dan Francia", nav: "home", label: "Home" },
@@ -169,11 +178,8 @@ function renderReleases() {
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 
-for (const asset of STATIC_ASSETS) {
-  const from = path.join(ROOT, asset.src);
-  if (fs.existsSync(from)) {
-    fs.copyFileSync(from, path.join(DIST, asset.dest));
-  }
+if (fs.existsSync(PUBLIC)) {
+  copyDir(PUBLIC, DIST);
 }
 
 const layout = fs.readFileSync(path.join(SRC, "templates", "layout.html"), "utf8");

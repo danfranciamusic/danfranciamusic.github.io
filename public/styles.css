@@ -25,6 +25,22 @@ h1 {
   margin-bottom: 1em;
 }
 
+.bio-photo {
+  margin-top: 1.5em;
+}
+
+.bio-photo img {
+  display: block;
+  width: 100%;
+  border: 1px solid #55525a;
+}
+
+.bio-photo figcaption {
+  margin-top: 0.5em;
+  color: #6f6c72;
+  font-size: 0.9em;
+}
+
 .frame {
   max-width: 800px;
   margin: 0 auto;
