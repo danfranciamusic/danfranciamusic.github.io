@@ -3,7 +3,7 @@
 
 // Tiny zero-dependency static site builder.
 //
-// Stitches src/layout.html together with each src/pages/*.html file and
+// Stitches src/templates/layout.html together with each src/pages/*.html file and
 // copies static assets into dist/, which is what actually gets deployed
 // to GitHub Pages (see .github/workflows/deploy.yml). No client-side JS
 // is involved in navigation -- these are plain links between plain pages.
@@ -17,7 +17,11 @@ const ROOT = __dirname;
 const SRC = path.join(ROOT, "src");
 const DIST = path.join(ROOT, "dist");
 
-const STATIC_ASSETS = ["CNAME", "favicon.ico", "styles.css"];
+const STATIC_ASSETS = [
+  { src: "CNAME", dest: "CNAME" },
+  { src: "favicon.ico", dest: "favicon.ico" },
+  { src: path.join("assets", "styles.css"), dest: "styles.css" },
+];
 
 const pages = [
   { file: "home.html", out: "index.html", href: "/", title: "Dan Francia", nav: "home", label: "Home" },
@@ -166,13 +170,13 @@ fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 
 for (const asset of STATIC_ASSETS) {
-  const from = path.join(ROOT, asset);
+  const from = path.join(ROOT, asset.src);
   if (fs.existsSync(from)) {
-    fs.copyFileSync(from, path.join(DIST, asset));
+    fs.copyFileSync(from, path.join(DIST, asset.dest));
   }
 }
 
-const layout = fs.readFileSync(path.join(SRC, "layout.html"), "utf8");
+const layout = fs.readFileSync(path.join(SRC, "templates", "layout.html"), "utf8");
 
 for (const page of pages) {
   const contentPath = path.join(SRC, "pages", page.file);

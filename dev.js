@@ -56,7 +56,7 @@ function resolveFilePath(url) {
 build();
 
 fs.watch(path.join(ROOT, "src"), { recursive: true }, scheduleBuild);
-fs.watch(path.join(ROOT, "styles.css"), scheduleBuild);
+fs.watch(path.join(ROOT, "assets"), { recursive: true }, scheduleBuild);
 
 http
   .createServer((req, res) => {
@@ -81,5 +81,5 @@ http
   })
   .listen(PORT, () => {
     console.log(`Dev server running at http://localhost:${PORT}`);
-    console.log("Watching src/ and styles.css for changes...");
+    console.log("Watching src/ and assets/ for changes...");
   });
