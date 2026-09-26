@@ -25,20 +25,55 @@ h1 {
   margin-bottom: 1em;
 }
 
-.bio-photo {
-  margin-top: 1.5em;
+.divider {
+  border: none;
+  border-top: 1px solid #423f44;
+  margin: 1.5em 0;
 }
 
-.bio-photo img {
+.post {
+  margin-bottom: 1.25em;
+  padding-bottom: 1.25em;
+  border-bottom: 1px solid #423f44;
+}
+
+.post:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post p {
+  margin-bottom: 0.75em;
+}
+
+.post p:last-child {
+  margin-bottom: 0;
+}
+
+.post-image {
   display: block;
   width: 100%;
   border: 1px solid #55525a;
 }
 
-.bio-photo figcaption {
+.post-caption {
   margin-top: 0.5em;
   color: #6f6c72;
   font-size: 0.9em;
+}
+
+.post-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.post-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .frame {

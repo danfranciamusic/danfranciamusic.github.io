@@ -175,6 +175,78 @@ function renderReleases() {
   return releases.map(renderRelease).join("\n\n");
 }
 
+// --- Posts: simple config files rendered through src/templates/post.html ---
+//
+// Same config format as releases. Posts have no titles -- just an optional
+// text block, link, image (with optional caption), and/or video, rendered
+// in that fixed order. Files are sorted by filename ascending (oldest
+// first) then reversed for newest-first display, so name them with a
+// numeric prefix (01-, 02-, ...) to control order.
+
+function renderPostText(raw) {
+  if (!raw) return "";
+  return raw
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) => {
+      const lines = block.split("\n").map((l) => escapeHtml(l.trim()));
+      return `    <p>${lines.join("<br>\n    ")}</p>`;
+    })
+    .join("\n");
+}
+
+function renderPostLink(link) {
+  if (!link) return "";
+  return `    <p><a href="${link}">${escapeHtml(link)}</a></p>`;
+}
+
+function youTubeEmbedUrl(url) {
+  const match = url.match(/(?:v=|youtu\.be\/)([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
+}
+
+function renderPostVideo(url) {
+  if (!url) return "";
+  return `    <div class="post-video">
+      <iframe src="${youTubeEmbedUrl(url)}" title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>`;
+}
+
+function renderPostImage(src, alt, caption) {
+  if (!src) return "";
+  const img = `    <img class="post-image" src="${src}" alt="${escapeHtml(alt || "")}">`;
+  const cap = caption ? `\n    <p class="post-caption">${escapeHtml(caption)}</p>` : "";
+  return img + cap;
+}
+
+function loadPosts() {
+  const dir = path.join(SRC, "data", "posts");
+  if (!fs.existsSync(dir)) return [];
+
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".txt"))
+    .sort()
+    .reverse()
+    .map((f) => parseConfig(fs.readFileSync(path.join(dir, f), "utf8")));
+}
+
+function renderPost(p) {
+  return fs
+    .readFileSync(path.join(SRC, "templates", "post.html"), "utf8")
+    .replace("{{TEXT}}", renderPostText(p.text))
+    .replace("{{LINK}}", renderPostLink(p.link))
+    .replace("{{IMAGE}}", renderPostImage(p.image, p["image-alt"], p.caption))
+    .replace("{{VIDEO}}", renderPostVideo(p.video));
+}
+
+function renderPosts() {
+  return loadPosts().map(renderPost).join("\n\n");
+}
+
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(DIST, { recursive: true });
 
@@ -190,6 +262,10 @@ for (const page of pages) {
 
   if (content.includes("{{RELEASES}}")) {
     content = content.replace("{{RELEASES}}", renderReleases());
+  }
+
+  if (content.includes("{{POSTS}}")) {
+    content = content.replace("{{POSTS}}", renderPosts());
   }
 
   const html = layout

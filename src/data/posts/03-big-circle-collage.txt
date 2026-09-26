@@ -1,0 +1,3 @@
+text: Big Circle:
+image: big_circle_photo_collage.jpg
+image-alt: Big Circle photo collage

@@ -1,0 +1,3 @@
+image: nora_photo_from_squid.jpg
+image-alt: Dan Francia
+caption: Photo by Nora Dabdoub - 5/11/26
