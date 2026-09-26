@@ -9,6 +9,7 @@ body {
   background: #B4E2B9;
   color: #273F36;
   font-family: Arial, Helvetica, sans-serif;
+  word-break: break-word;
 }
 
 a, a:visited {

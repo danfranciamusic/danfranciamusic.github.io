@@ -1,0 +1,118 @@
+# Add a release by appending another [[release]] block below (order in
+# this file doesn't matter -- they're sorted by "date" at build time).
+#
+# tracklist and player/player_link are optional -- omit them entirely if
+# a release doesn't have one. credits is free-form text: separate
+# paragraphs with a blank line; lines within a paragraph get joined with
+# a line break.
+
+[[release]]
+title = "Dan Francia, Adam Schatz and The Tiny Squid EP"
+artwork = "https://f4.bcbits.com/img/a3986351431_10.jpg"
+date = "August 4, 2026"
+tracklist = [
+  "Out Of Pocket 04:26",
+  "Wonder Not 03:18",
+  "Futuristic Insects 00:51",
+]
+credits = '''
+Dan Francia - bass
+Adam Schatz - sax and live processing
+Luke Chiaruttini (Track 1), Adam Reich and Nora Dabdoub are The Tiny Squid
+
+Track 1 - high-pitched metal percussion
+Tracks 2 and 3 - small self-amplified electronic instruments
+
+Recorded by Adam Reich on May 11th, 2026 at Second Base in Brooklyn, NY
+Mixed and mastered by Dan Francia
+Cover Art by Karla Francia
+'''
+player = "https://bandcamp.com/EmbeddedPlayer/album=1154608695/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/"
+player_link = "https://danfrancia.bandcamp.com/album/dan-francia-adam-schatz-and-the-tiny-squid-ep"
+
+[[release]]
+title = "Big Circle EP"
+artwork = "https://f4.bcbits.com/img/a4093003552_2.jpg"
+date = "July 17, 2026"
+tracklist = [
+  "Flipped Over (Watt) 03:13",
+  "Calling All Gods (Weckerman) 03:20",
+  "Exit Plan (Mercer) 03:48",
+  "Signs Along The Way (Francia) 03:40",
+]
+credits = '''
+Dan Francia - bass (right)
+Dave Weckerman - drums
+Glenn Mercer - guitar
+Mike Watt - bass (left)
+
+Recorded during 2025 - 2026 and mixed by Dan and Glenn at Boat Studio in North Haledon, NJ. Watt recorded himself at studio tHUNDERpANTS in San Pedro, CA. Additional instruments by the band.
+
+Flipped Over - published by tHUNDERpSPIELS MUSIC (BMI). Calling All Gods - published by Wu Publishing (ASCAP). Exit Plan - published by Glenn Mercer Music (ASCAP). Signs Along The Way - published by Dan Francia (BMI).
+
+Mastered by Sarah Register. Art Layout by Mike Quigley.
+'''
+player = "https://bandcamp.com/EmbeddedPlayer/album=1983788584/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/"
+player_link = "https://danfrancia.bandcamp.com/album/big-circle-ep"
+
+[[release]]
+title = "There Is A Way"
+artwork = "https://f4.bcbits.com/img/a3356085937_10.jpg"
+date = "November 7, 2025"
+tracklist = [
+  "There Is A Way 03:12",
+  "They Don’t Wanna See Me At Hanges 03:55",
+  "(He Saw) The Aliens With The Storks 03:53",
+  "News Travels Fast 02:26",
+  "Big Brown Hat 03:19",
+  "What It Is, What It Was, and What It Will Be 03:37",
+  "Arugula Used To Be Spicy 02:03",
+]
+credits = '''
+1.) There Is A Way
+Ellie Shannon - french horn, trombone
+Cameron Wisch - mridangam, djembe
+Amanda Xu Romani - violin
+
+2.) They Don’t Wanna See Me At Hanges
+Cameron Wisch - mridangam, shaker, piano
+Amanda Xu Romani - violin
+Toni Baumgartner - flute
+Eric Harm - drum kit
+*Men’s Choir
+
+3.) (He Saw) The Aliens With The Storks
+Amanda Xu Romani - violin
+Eric Harm - drum kit
+Cameron Wisch - mridangam, piano
+
+4.) News Travels Fast
+Toni Baumgartner - flute, clarinet, voice
+Eric Harm - drum kit
+
+5.) Big Brown Hat
+Cameron Wisch - mridangam
+Eric Harm - drum kit
+
+6.) What It Is, What It Was, and What It Will Be
+Eric Harm - drum kit, electric drum kit
+Amanda Xu Romani - violin
+Carter Yasutake - trumpet
+Cameron Wisch - mridangam
+
+7.) Arugula Used To Be Spicy
+
+All music written, played, and recorded at home in NJ by Dan unless otherwise noted.
+
+Cameron’s piano parts were written by Cameron. Some of Eric and Cameron’s drum parts were written by them.
+
+Eric’s drums recorded by Dan and Adam Reich at Second Base. Cameron’s parts recorded by Dan and Cameron at Cameron’s place. Carter’s trumpet recorded by Dan at Carter’s apt. Eric Xu Romani recorded Amanda’s violin at EXR Media. Ellie recorded her parts at home.
+
+Mixed and mastered by Eric Xu Romani at EXR Media.
+Art layout by Mike Quigley.
+Cover photo by Karla Francia.
+
+*Men’s Choir is: Dan Francia, Marc Francia, John Baumgartner, Powell Mark, Steve Mahedy, Mike Abrams, Joe Abrams, Justin King, Brian Ix, Jordan Baron, Ed Kuiken, Justin Rudolph
+'''
+player = "https://bandcamp.com/EmbeddedPlayer/album=1399756005/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/"
+player_link = "https://danfrancia.bandcamp.com/album/there-is-a-way"

@@ -1,0 +1,23 @@
+# Posts have no title -- just whichever fields apply (text, link, image,
+# image_alt, caption, video). Delete any field a post doesn't need.
+#
+# Listed oldest to newest -- append new posts to the END of this file.
+# They're reversed at build time for newest-first display.
+
+[[post]]
+image = "nora_photo_from_squid.jpg"
+image_alt = "Dan Francia"
+caption = "Photo by Nora Dabdoub - 5/11/26"
+
+[[post]]
+text = 'Dan Francia, Devin McKnight, Adam Reich & The House of Oranges announce "Dust"'
+video = "https://www.youtube.com/watch?v=zwU_pf_q9JM"
+
+[[post]]
+text = "Big Circle:"
+image = "big_circle_photo_collage.jpg"
+image_alt = "Big Circle photo collage"
+
+[[post]]
+text = "Big Circle EP review in Scene Point Blank by Jeremiah Duncan"
+link = "https://www.scenepointblank.com/reviews/big-circle/big-circle/"

@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 "use strict";
 
-// Tiny zero-dependency static site builder.
+// Tiny static site builder.
 //
 // Stitches src/templates/layout.html together with each src/pages/*.html file
-// and copies everything in public/ as-is into dist/, which is what actually
-// gets deployed to GitHub Pages (see .github/workflows/deploy.yml). No
-// client-side JS is involved in navigation -- these are plain links between
-// plain pages.
+// (release/post data comes from src/data/*.toml, parsed with smol-toml) and
+// copies everything in public/ as-is into dist/, which is what actually gets
+// deployed to GitHub Pages (see .github/workflows/deploy.yml). No client-side
+// JS is involved in navigation -- these are plain links between plain pages.
 //
 // Usage: node build.js
 
 const fs = require("fs");
 const path = require("path");
+const { parse: parseToml } = require("smol-toml");
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, "src");
@@ -49,58 +50,12 @@ function renderNav(activeNav) {
     .join("\n");
 }
 
-// --- Releases: simple config files rendered through src/templates/release.html ---
+// --- Releases: src/data/releases.toml, rendered through src/templates/release.html ---
 //
-// Config format: "key: value" lines, or "key:" on its own line followed by
-// a fenced ``` block for multi-line values. Lines starting with # are
-// comments.
-
-function parseConfig(text) {
-  const data = {};
-  const lines = text.split("\n");
-  let i = 0;
-
-  while (i < lines.length) {
-    const line = lines[i];
-
-    if (line.trim() === "" || line.trim().startsWith("#")) {
-      i++;
-      continue;
-    }
-
-    const match = line.match(/^([a-zA-Z][a-zA-Z0-9_-]*):\s*(.*)$/);
-    if (!match) {
-      i++;
-      continue;
-    }
-
-    const [, key, inlineValue] = match;
-
-    if (inlineValue.trim() !== "") {
-      data[key] = inlineValue.trim();
-      i++;
-      continue;
-    }
-
-    let j = i + 1;
-    while (j < lines.length && lines[j].trim() === "") j++;
-
-    if (j < lines.length && lines[j].trim() === "```") {
-      const blockLines = [];
-      j++;
-      while (j < lines.length && lines[j].trim() !== "```") {
-        blockLines.push(lines[j]);
-        j++;
-      }
-      data[key] = blockLines.join("\n").trim();
-      i = j + 1;
-    } else {
-      i++;
-    }
-  }
-
-  return data;
-}
+// [[release]] is an array of release records. Order in the file doesn't
+// matter -- they're sorted by "date" below. A malformed TOML file fails
+// the build loudly (with a line number) rather than silently producing
+// wrong output.
 
 function escapeHtml(str) {
   return String(str)
@@ -110,15 +65,9 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function renderTracklist(raw) {
-  if (!raw) return "";
-  const items = raw
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .map((line) => line.replace(/^\d+[.)]+\s*/, ""))
-    .map((line) => `      <li>${escapeHtml(line)}</li>`)
-    .join("\n");
+function renderTracklist(tracks) {
+  if (!tracks || tracks.length === 0) return "";
+  const items = tracks.map((line) => `      <li>${escapeHtml(line)}</li>`).join("\n");
   return `    <ol class="tracklist">\n${items}\n    </ol>`;
 }
 
@@ -145,26 +94,23 @@ function renderPlayer(src, link, title) {
 }
 
 function loadReleases() {
-  const dir = path.join(SRC, "data", "releases");
-  if (!fs.existsSync(dir)) return [];
+  const file = path.join(SRC, "data", "releases.toml");
+  if (!fs.existsSync(file)) return [];
 
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".txt"))
-    .map((f) => parseConfig(fs.readFileSync(path.join(dir, f), "utf8")))
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const { release } = parseToml(fs.readFileSync(file, "utf8"));
+  return [...(release || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 function renderRelease(r) {
   return fs
     .readFileSync(path.join(SRC, "templates", "release.html"), "utf8")
     .replace("{{ARTWORK}}", r.artwork || "")
-    .replace("{{ARTWORK_ALT}}", escapeHtml(r["artwork-alt"] || `${r.title} cover art`))
+    .replace("{{ARTWORK_ALT}}", escapeHtml(r.artwork_alt || `${r.title} cover art`))
     .replace("{{TITLE}}", escapeHtml(r.title || ""))
     .replace("{{DATE}}", escapeHtml(r.date || ""))
     .replace("{{TRACKLIST}}", renderTracklist(r.tracklist))
     .replace("{{CREDITS}}", renderCredits(r.credits))
-    .replace("{{PLAYER}}", renderPlayer(r.player, r["player-link"], r.title));
+    .replace("{{PLAYER}}", renderPlayer(r.player, r.player_link, r.title));
 }
 
 function renderReleases() {
@@ -175,13 +121,12 @@ function renderReleases() {
   return releases.map(renderRelease).join("\n\n");
 }
 
-// --- Posts: simple config files rendered through src/templates/post.html ---
+// --- Posts: src/data/posts.toml, rendered through src/templates/post.html ---
 //
-// Same config format as releases. Posts have no titles -- just an optional
-// text block, link, image (with optional caption), and/or video, rendered
-// in that fixed order. Files are sorted by filename ascending (oldest
-// first) then reversed for newest-first display, so name them with a
-// numeric prefix (01-, 02-, ...) to control order.
+// [[post]] is an array of post records, listed oldest to newest (append
+// new ones to the end) and reversed below for newest-first display. Posts
+// have no titles -- just an optional text block, link, image (with
+// optional caption), and/or video, rendered in that fixed order.
 
 function renderPostText(raw) {
   if (!raw) return "";
@@ -223,15 +168,11 @@ function renderPostImage(src, alt, caption) {
 }
 
 function loadPosts() {
-  const dir = path.join(SRC, "data", "posts");
-  if (!fs.existsSync(dir)) return [];
+  const file = path.join(SRC, "data", "posts.toml");
+  if (!fs.existsSync(file)) return [];
 
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".txt"))
-    .sort()
-    .reverse()
-    .map((f) => parseConfig(fs.readFileSync(path.join(dir, f), "utf8")));
+  const { post } = parseToml(fs.readFileSync(file, "utf8"));
+  return [...(post || [])].reverse();
 }
 
 function renderPost(p) {
@@ -239,7 +180,7 @@ function renderPost(p) {
     .readFileSync(path.join(SRC, "templates", "post.html"), "utf8")
     .replace("{{TEXT}}", renderPostText(p.text))
     .replace("{{LINK}}", renderPostLink(p.link))
-    .replace("{{IMAGE}}", renderPostImage(p.image, p["image-alt"], p.caption))
+    .replace("{{IMAGE}}", renderPostImage(p.image, p.image_alt, p.caption))
     .replace("{{VIDEO}}", renderPostVideo(p.video));
 }
 
