@@ -51,9 +51,9 @@ function renderNav(activeNav) {
 
 // --- Releases: simple config files rendered through src/templates/release.html ---
 //
-// Config format (see templates/release-template.txt for a blank copy-paste
-// starter): "key: value" lines, or "key:" on its own line followed by a
-// fenced ``` block for multi-line values. Lines starting with # are comments.
+// Config format: "key: value" lines, or "key:" on its own line followed by
+// a fenced ``` block for multi-line values. Lines starting with # are
+// comments.
 
 function parseConfig(text) {
   const data = {};
