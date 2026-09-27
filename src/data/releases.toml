@@ -135,5 +135,6 @@ Toni Baumgartner - flute, balloons
 Recorded at Dan Francia's home in NJ on June 9th, 2024
 Mixed, Mastered and Artwork by Dan Francia
 '''
-player = "<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=729597747/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://danfrancia.bandcamp.com/album/magenta-magnets-wind-quintet-digital-single-and-b-side">Magenta Magnets Wind Quintet - Digital Single and B-Side by Magenta Magnets Wind Quintet</a></iframe>"
+player = "https://bandcamp.com/EmbeddedPlayer/album=729597747/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/"
 player_link = "https://danfrancia.bandcamp.com/album/magenta-magnets-wind-quintet-digital-single-and-b-side"
+
